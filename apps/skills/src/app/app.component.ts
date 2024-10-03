@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
+import { MatToolbar } from '@angular/material/toolbar';
+import { MatButton } from '@angular/material/button';
 @Component({
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, MatToolbar, MatButton],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

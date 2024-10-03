@@ -8,12 +8,16 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/skills",
         "index": "apps/skills/src/index.html",
         "browser": "apps/skills/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/skills/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -22,7 +26,10 @@
             "input": "apps/skills/public"
           }
         ],
-        "styles": ["apps/skills/src/styles.scss"],
+        "styles": [
+          "@angular/material/prebuilt-themes/magenta-violet.css",
+          "apps/skills/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -73,7 +80,9 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/skills/jest.config.ts"
       }
