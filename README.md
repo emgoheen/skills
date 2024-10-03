@@ -53,4 +53,12 @@ npx nx g @nx/angular:lib mylib
 
 You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
 
+## Formatting code files
+
+Currently, there is no Husky pre-commit or pre-push hooks which enforce code formatting.  However,  prettier is configured so that format:check can be run manually when needed:
+
+```sh
+npx nx format:check
+```
+
 
