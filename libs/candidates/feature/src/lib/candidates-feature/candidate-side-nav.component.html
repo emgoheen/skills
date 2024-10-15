@@ -1,0 +1,8 @@
+<div>
+  @for(candidate of store.candidates(); track candidate.id){
+  <p>ID: {{ candidate.id }}</p>
+  <p>Name: {{ candidate.name }}</p>
+  <p>Title: {{ candidate.title }}</p>
+  <img [src]="candidate.photo" alt="{{ candidate.name }}" />
+  }
+</div>

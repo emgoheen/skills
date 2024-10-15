@@ -24,6 +24,16 @@
           {
             "glob": "**/*",
             "input": "apps/skills/public"
+          },
+          {
+            "glob": "**/*.json",
+            "input": "./libs/candidates/data-access/src/lib/candidates-data-access",
+            "output": "candidates"
+          },
+          {
+            "glob": "**/*.jpg",
+            "input": "./libs/candidates/data-access/src/lib/candidates-data-access",
+            "output": "candidates"
           }
         ],
         "styles": [

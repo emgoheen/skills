@@ -1,3 +1,21 @@
 import { Route } from '@angular/router';
 
-export const appRoutes: Route[] = [];
+export enum AppRoutes {
+    CANDIDATES_SIDE_NAV_ROUTE = 'candidates-side-nav'
+}
+export const appRoutes: Route[] = [
+    {
+        path: '',
+        redirectTo: AppRoutes.CANDIDATES_SIDE_NAV_ROUTE,
+        pathMatch: 'full'    
+    },
+    {
+        path: AppRoutes.CANDIDATES_SIDE_NAV_ROUTE,
+        loadComponent: () => import('@skills/candidates/feature').then((mod) => mod.CandidateSideNavComponent)
+    },
+    {
+        path: '**',
+        pathMatch: 'full',
+        redirectTo: AppRoutes.CANDIDATES_SIDE_NAV_ROUTE
+    }
+];

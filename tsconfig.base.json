@@ -14,7 +14,13 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@skills/candidates/data-access": [
+        "libs/candidates/data-access/src/index.ts"
+      ],
+      "@skills/candidates/feature": ["libs/candidates/feature/src/index.ts"],
+      "@skills/candidates/model": ["libs/candidates/model/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

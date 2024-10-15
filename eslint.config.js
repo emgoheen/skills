@@ -30,4 +30,11 @@ module.exports = [
     // Override or add rules here
     rules: {},
   },
+  {
+    files: ['**/*.json'],
+    rules: {
+      '@nx/dependency-checks': 'off'
+    },
+    languageOptions: { parser: require('jsonc-eslint-parser') },
+  },
 ];

@@ -1,0 +1,14 @@
+[
+    {
+        "id": "emily",
+        "name": "Emily Tracy",
+        "photo": "candidates/emily.jpg",
+        "title": "Senior Software Engineer"
+    },
+    {
+        "id": "bob",
+        "name": "Bob Tracy",
+        "photo": "candidates/bob.jpg",
+        "title": "Senior Principal Software Engineer"
+    }
+]
