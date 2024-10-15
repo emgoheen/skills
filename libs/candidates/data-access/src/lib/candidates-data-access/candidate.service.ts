@@ -8,8 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CandidateService {
   private readonly candidateInfoUrl = './candidates/candidates.json';
-  // private readonly httpClient = inject(HttpClient);
-  constructor(private httpClient: HttpClient){}
+  private readonly httpClient = inject(HttpClient);
 
   getCandidates(): Observable<Candidate[]>{
     return this.httpClient.get<Candidate[]>(this.candidateInfoUrl);

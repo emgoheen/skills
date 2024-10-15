@@ -4,9 +4,6 @@ import { Candidate } from '@skills/candidates/model';
 import { delay, of } from 'rxjs';
 import { CandidateStore } from './candidate.store';
 import { createSpyFromClass } from 'jest-auto-spies';
-import { provideHttpClient } from '@angular/common/http';
-import { HttpClientTestingModule, provideHttpClientTesting } from '@angular/common/http/testing';
-
 
 const mockCandidateData: Candidate[] = [
   {
