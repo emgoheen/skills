@@ -1,10 +1,17 @@
 import { inject } from '@angular/core';
-import { signalStore, withState, withMethods, patchState, withHooks } from '@ngrx/signals';
+import {
+  signalStore,
+  withState,
+  withMethods,
+  patchState,
+  withHooks,
+} from '@ngrx/signals';
 import { CandidateService } from '@skills/candidates/data-access';
 import { Candidate } from '@skills/candidates/model';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { switchMap, tap, Observable } from 'rxjs';
 import { tapResponse } from '@ngrx/operators';
+import { addEntities, withEntities } from '@ngrx/signals/entities';
 
 type CandidateState = {
   candidates: Candidate[];
@@ -18,6 +25,7 @@ const initialState: CandidateState = {
 
 export const CandidateStore = signalStore(
   withState(initialState),
+  withEntities<Candidate>(),
   withMethods((state, candidateService = inject(CandidateService)) => ({
     fetchCandidates: rxMethod((trigger$: Observable<void>) =>
       trigger$.pipe(
@@ -26,20 +34,22 @@ export const CandidateStore = signalStore(
           return candidateService.getCandidates().pipe(
             tapResponse({
               next: (candidates) =>
-                patchState(state, { candidates, isLoading: false }),
+                patchState(state, addEntities(candidates), {
+                  isLoading: false,
+                }),
               error: (err) => {
                 patchState(state, { isLoading: false });
                 console.log(err);
               },
-            })
+            }),
           );
-        })
-      )
+        }),
+      ),
     ),
   })),
   withHooks({
-    onInit(state){
+    onInit(state) {
       state.fetchCandidates();
-    }
-  })
+    },
+  }),
 );

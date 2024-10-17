@@ -33,8 +33,8 @@ describe('CandidateStore', () => {
     tick(50);
     expect(store.isLoading()).toBe(true);
     tick(50);
-    expect(store.candidates()).toHaveLength(mockCandidateData.length);
-    expect(store.candidates()).toEqual(mockCandidateData);
+    expect(store.entities()).toHaveLength(mockCandidateData.length);
+    expect(store.entities()).toEqual(mockCandidateData);
     expect(store.isLoading()).toBe(false);
   }));
 });
