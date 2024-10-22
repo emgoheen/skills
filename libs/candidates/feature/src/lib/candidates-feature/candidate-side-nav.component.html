@@ -1,8 +1,18 @@
-<div>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #sidenav
+    class="app-sidenav mat-elevation-z10"
+    [opened]="!isSmallScreen()"
+    [mode]="isSmallScreen() ? 'over' : 'side'"
+  >
+    <mat-toolbar color="primary"> Candidates </mat-toolbar>
+  </mat-sidenav>
+</mat-sidenav-container>
+<!-- <div>
   @for(candidate of store.entities(); track candidate.id){
   <p>ID: {{ candidate.id }}</p>
   <p>Name: {{ candidate.name }}</p>
   <p>Title: {{ candidate.title }}</p>
   <img [src]="candidate.photo" alt="{{ candidate.name }}" />
   }
-</div>
+</div> -->

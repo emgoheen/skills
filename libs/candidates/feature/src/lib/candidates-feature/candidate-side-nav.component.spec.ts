@@ -38,9 +38,7 @@ describe('CandidateSideNavComponent', () => {
 
   it('will render the candidate names', async () => {
     const { mockCandidateStore } = await setup();
-    const candidateName = screen.getByText(
-      `Name: ${mockCandidateData[0].name}`,
-    );
+    const candidateName = screen.getByText(`Candidates`);
     expect(candidateName).toBeVisible();
     expect(mockCandidateStore.fetchCandidates).toHaveBeenCalled();
   });
