@@ -1,7 +1,7 @@
 import { Route } from '@angular/router';
 
 export enum AppRoutes {
-  CANDIDATES_SIDE_NAV_ROUTE = 'skills',
+  CANDIDATES_SIDE_NAV_ROUTE = 'home',
 }
 export const appRoutes: Route[] = [
   {
