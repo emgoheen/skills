@@ -5,3 +5,18 @@
   height: 100%;
   min-height: 100%;
 }
+
+.sidenav {
+  width: 280px;
+}
+
+.sidenav-content {
+  display: flex;
+  height: 100%;
+
+  flex-direction: column;
+}
+
+.content {
+  margin: 50px;
+}

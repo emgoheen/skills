@@ -1,12 +1,36 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav
+    class="sidenav mat-elevation-z10"
     #sidenav
-    class="app-sidenav mat-elevation-z10"
     [opened]="!isSmallScreen()"
     [mode]="isSmallScreen() ? 'over' : 'side'"
   >
     <mat-toolbar color="primary"> Candidates </mat-toolbar>
+    <mat-nav-list>
+      @for(candidate of store.entities(); track candidate.id){
+      <a
+        mat-list-item
+        [routerLink]="['/skills', candidate.id]"
+        routerLinkActive="selected"
+      >
+        <img matListItemAvatar [src]="candidate.photo" alt="..." />
+        <div matListItemTitle>
+          {{ candidate.name }}
+        </div>
+        <div matListItemLine>
+          <small>{{ candidate.title }}</small>
+        </div>
+      </a>
+      }
+    </mat-nav-list>
   </mat-sidenav>
+  <mat-sidenav-content class="sidenav-content">
+    <mat-toolbar></mat-toolbar>
+    <div class="content">
+      Candidate Details Will Go Here...
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
 </mat-sidenav-container>
 <!-- <div>
   @for(candidate of store.entities(); track candidate.id){
