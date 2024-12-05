@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CandidateStore } from './candidate.store';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -24,6 +24,7 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './candidate-side-nav.component.html',
   styleUrl: './candidate-side-nav.component.scss',
   providers: [CandidateStore],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CandidateSideNavComponent {
   readonly store = inject(CandidateStore);
