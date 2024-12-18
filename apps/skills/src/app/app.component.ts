@@ -6,12 +6,10 @@ import {
   VERSION,
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { MatToolbar } from '@angular/material/toolbar';
-import { MatButton } from '@angular/material/button';
 import { Title } from '@angular/platform-browser';
 @Component({
   standalone: true,
-  imports: [RouterModule, MatToolbar, MatButton],
+  imports: [RouterModule],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
