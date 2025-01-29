@@ -6,8 +6,8 @@ import {
   patchState,
   withHooks,
 } from '@ngrx/signals';
-import { CandidateService } from '@skills/candidates/data-access';
-import { Candidate } from '@skills/candidates/model';
+import { CandidateService } from '@skills/candidates-data-access';
+import { Candidate } from '@skills/candidates-model';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { switchMap, tap, Observable } from 'rxjs';
 import { tapResponse } from '@ngrx/operators';

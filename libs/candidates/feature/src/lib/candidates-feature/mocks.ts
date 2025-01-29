@@ -1,4 +1,4 @@
-import { Candidate } from '@skills/candidates/model';
+import { Candidate } from '@skills/candidates-model';
 
 export const mockCandidateData: Candidate[] = [
   {

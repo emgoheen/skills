@@ -1,5 +1,16 @@
 {
   "singleQuote": true,
   "trailingComma": "all",
-  "proseWrap": "always"
+  "proseWrap": "always",
+  "overrides": [
+    {
+      "files": [
+        "**/*.json",
+        "**/*.*rc"
+      ],
+      "options": {
+        "trailingComma": "none"
+      }
+    }
+  ]
 }

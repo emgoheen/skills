@@ -12,7 +12,7 @@ export const appRoutes: Route[] = [
   {
     path: AppRoutes.CANDIDATES_SIDE_NAV_ROUTE,
     loadComponent: () =>
-      import('@skills/candidates/feature').then(
+      import('@skills/candidates-feature').then(
         (mod) => mod.CandidateSideNavComponent,
       ),
   },

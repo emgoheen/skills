@@ -1,5 +1,5 @@
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
-import { CandidateService } from '@skills/candidates/data-access';
+import { CandidateService } from '@skills/candidates-data-access';
 import { delay, of } from 'rxjs';
 import { CandidateStore } from './candidate.store';
 import { createSpyFromClass } from 'jest-auto-spies';

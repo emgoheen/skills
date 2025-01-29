@@ -8,16 +8,12 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/skills",
         "index": "apps/skills/src/index.html",
         "browser": "apps/skills/src/main.ts",
-        "polyfills": [
-          "zone.js"
-        ],
+        "polyfills": ["zone.js"],
         "tsConfig": "apps/skills/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -34,6 +30,11 @@
             "glob": "**/*.jpg",
             "input": "./libs/candidates/data-access/src/lib/candidates-data-access",
             "output": "candidates"
+          },
+          {
+            "glob": "**/*.json",
+            "input": "./libs/candidate-content/data-access/src/lib/candidate-content-data-access",
+            "output": "candidate-content"
           }
         ],
         "styles": [
@@ -90,9 +91,7 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectRoot}"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "apps/skills/jest.config.ts"
       }

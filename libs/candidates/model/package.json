@@ -1,5 +1,5 @@
 {
-  "name": "@skills/candidates/model",
+  "name": "@skills/candidates-model",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^18.2.0",

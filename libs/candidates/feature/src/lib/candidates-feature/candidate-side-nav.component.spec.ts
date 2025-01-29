@@ -1,7 +1,7 @@
 import { createSpyFromClass } from 'jest-auto-spies';
 import { CandidateStore } from './candidate.store';
 import { render, screen } from '@testing-library/angular';
-import { CandidateService } from '@skills/candidates/data-access';
+import { CandidateService } from '@skills/candidates-data-access';
 import { CandidateSideNavComponent } from './candidate-side-nav.component';
 import { of } from 'rxjs';
 import { mockCandidateData } from './mocks';

@@ -4,3 +4,8 @@
 /.nx/cache
 /.nx/workspace-data
 .angular
+# this file is failing the prettier formatting checks.  It's related to
+# the "paths" key being located in this file.  The "paths" could be 
+# empty, {}, or it could contain paths.  Either way, this fails Nx's
+# format check for some reason that hasn't been deduced.
+tsconfig.base.json

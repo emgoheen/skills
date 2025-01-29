@@ -10,17 +10,33 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2020", "dom"],
+    "lib": [
+      "es2020",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@skills/candidates/data-access": [
+      "@skills/candidate-content-data-access": [
+        "libs/candidate-content/data-access/src/index.ts"
+      ],
+      "@skills/candidate-content-model": [
+        "libs/candidate-content/model/src/index.ts"
+      ],
+      "@skills/candidates-data-access": [
         "libs/candidates/data-access/src/index.ts"
       ],
-      "@skills/candidates/feature": ["libs/candidates/feature/src/index.ts"],
-      "@skills/candidates/model": ["libs/candidates/model/src/index.ts"]
+      "@skills/candidates-feature": [
+        "libs/candidates/feature/src/index.ts"
+      ],
+      "@skills/candidates-model": [
+        "libs/candidates/model/src/index.ts"
+      ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }
