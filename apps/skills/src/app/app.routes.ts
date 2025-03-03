@@ -15,6 +15,15 @@ export const appRoutes: Route[] = [
       import('@skills/candidates-feature').then(
         (mod) => mod.CandidateSideNavComponent,
       ),
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('@skills/candidate-content-feature').then(
+            (mod) => mod.CandidateContentFeatureComponent,
+          ),
+      },
+    ],
   },
   {
     path: '**',
