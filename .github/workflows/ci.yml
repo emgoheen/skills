@@ -76,6 +76,12 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+        # In order to support refresh and deep-linking for
+        # angular apps (SPA apps), there needs to be a 404.html
+        # file that is a direct copy of index.html.  See
+        # https://v17.angular.io/guide/deployment#deploy-to-github-pages
+        # Updated docs for Angular suggest the same approach but have
+        # less information on how to do this.
       - name: Setup GitHub Pages SPA redirect
         run: cp index.html 404.html
         
