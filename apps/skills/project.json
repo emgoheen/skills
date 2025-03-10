@@ -17,6 +17,7 @@
         "tsConfig": "apps/skills/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
+          "apps/skills/src/404.html",
           {
             "glob": "**/*",
             "input": "apps/skills/public"
