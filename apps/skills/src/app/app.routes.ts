@@ -23,6 +23,13 @@ export const appRoutes: Route[] = [
             (mod) => mod.CandidateContentFeatureComponent,
           ),
       },
+      {
+        path: ':id',
+        loadComponent: () =>
+          import('@skills/candidate-content-feature').then(
+            (mod) => mod.CandidateContentFeatureComponent,
+          ),
+      },
     ],
   },
   {

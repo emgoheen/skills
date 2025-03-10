@@ -1,1 +1,7 @@
-<p>candidate-content-feature works!</p>
+<div>
+  @if (candidateId) {
+    <p>Candidate content for {{ candidateId }} will be displayed here.</p>
+  } @else {
+    <p>No candidate currently selected.</p>
+  }
+</div>

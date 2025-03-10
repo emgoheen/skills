@@ -45,7 +45,7 @@
       },
       "configurations": {
         "production": {
-          "baseHref": "/skills/",
+          "baseHref": "/home/",
           "budgets": [
             {
               "type": "initial",
