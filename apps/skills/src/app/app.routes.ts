@@ -17,14 +17,14 @@ export const appRoutes: Route[] = [
       ),
     children: [
       {
-        path: '',
+        path: ':id',
         loadComponent: () =>
           import('@skills/candidate-content-feature').then(
             (mod) => mod.CandidateContentFeatureComponent,
           ),
       },
       {
-        path: ':id',
+        path: '',
         loadComponent: () =>
           import('@skills/candidate-content-feature').then(
             (mod) => mod.CandidateContentFeatureComponent,
@@ -34,7 +34,6 @@ export const appRoutes: Route[] = [
   },
   {
     path: '**',
-    pathMatch: 'full',
     redirectTo: AppRoutes.CANDIDATES_SIDE_NAV_ROUTE,
   },
 ];
