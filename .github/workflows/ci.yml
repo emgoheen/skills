@@ -77,7 +77,7 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Setup GitHub Pages SPA redirect
-        run: cp dist/apps/apps/skills/browser/index.html dist/apps/apps/skills/browser/404.html
+        run: cp index.html 404.html
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
