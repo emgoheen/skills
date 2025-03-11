@@ -10,8 +10,10 @@
       @for (candidate of store.entities(); track candidate.id) {
         <a
           mat-list-item
-          [routerLink]="['/home', candidate.id]"
           routerLinkActive="selected"
+          #routerLinkActiveInstance="routerLinkActive"
+          [activated]="routerLinkActiveInstance.isActive"
+          [routerLink]="['/home', candidate.id]"
         >
           <img matListItemAvatar [src]="candidate.photo" alt="..." />
           <div matListItemTitle>
