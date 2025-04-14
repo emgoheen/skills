@@ -39,6 +39,7 @@ describe('CandidateContentService', () => {
     );
   });
 
+  // Inserting a comment here to force a change in the file.
   it('should handle HTTP errors gracefully', () => {
     const { candidateContentService, mockHttpClient } = setup();
     const errorResponse = new Error('HTTP error');
