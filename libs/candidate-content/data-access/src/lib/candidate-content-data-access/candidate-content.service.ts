@@ -11,7 +11,6 @@ export class CandidateContentService {
     './candidate-content/candidate-content.json';
   private readonly httpClient = inject(HttpClient);
 
-  // Comment here to force a change in this file
   getCandidateContent(): Observable<CandidateContent[]> {
     return this.httpClient.get<CandidateContent[]>(this.candidateContentUrl);
   }

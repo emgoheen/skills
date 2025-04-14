@@ -4,7 +4,7 @@
   "sourceRoot": "libs/candidate-content/feature/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": ["scope:skills"],
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@nx/angular:ng-packagr-lite",
