@@ -28,6 +28,11 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    # ✅ Output flag indicating if artifact exists
+    outputs:
+      artifact-exists: ${{ steps.check-artifact.outputs.exists }}
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -36,8 +41,8 @@ jobs:
       # This enables task distribution via Nx Cloud
       # Run this command as early as possible, before dependencies are installed
       # Learn more at https://nx.dev/ci/reference/nx-cloud-cli#npx-nxcloud-startcirun
-      - run:
-          npx nx-cloud start-ci-run --distribute-on="3 linux-medium-js"
+      - run: |
+          npx nx-cloud start-ci-run --distribute-on="3 linux-medium-js" \
           --stop-agents-after="build"
 
       # Cache node_modules
@@ -54,14 +59,30 @@ jobs:
       # Nx Affected runs only tasks affected by the changes in this PR/commit. Learn more: https://nx.dev/ci/features/affected
       - run: npx nx affected -t build,lint
 
+      # ✅ Check if build output directory exists
+      - name: Check if build artifact exists
+        id: check-artifact
+        run: |
+          if [ -d dist/apps/skills/browser ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
       # Upload the build output as an artifact
       - name: Upload Build Artifact
+        if: steps.check-artifact.outputs.exists == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: build-artifact
           path: dist/apps/skills/browser
+
   deploy:
     needs: build
+
+    # ✅ Skip deploy job if no artifact
+    if: needs.build.outputs.artifact-exists == 'true'
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
