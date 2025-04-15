@@ -25,7 +25,6 @@ describe('CandidateContentService', () => {
     return { candidateContentService, mockHttpClient };
   }
 
-  // Only a change in the test file
   it('should return the correct candidate content data', () => {
     const { candidateContentService, mockHttpClient } = setup();
     mockHttpClient.get.mockReturnValue(of(CANDIDATE_CONTENT_DATA_MOCK));
