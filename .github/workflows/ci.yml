@@ -26,8 +26,29 @@ env:
   NX_CLOUD_NPM_LEGACY_INSTALL: false
 
 jobs:
+  lint: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Cache node_modules
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - run: npm ci
+      - uses: nrwl/nx-set-shas@v4
+  
+      # Run linting for affected projects
+      - name: Run Lint
+        run: npx nx affected -t lint
+
   build:
     runs-on: ubuntu-latest
+    needs: lint
 
     # ✅ Output flag indicating if artifact exists
     outputs:
@@ -57,7 +78,7 @@ jobs:
       # Prepend any command with "nx-cloud record --" to record its logs to Nx Cloud
       # - run: npx nx-cloud record -- echo Hello World
       # Nx Affected runs only tasks affected by the changes in this PR/commit. Learn more: https://nx.dev/ci/features/affected
-      - run: npx nx affected -t build,lint
+      - run: npx nx affected -t build
 
       # ✅ Check if build output directory exists
       - name: Check if build artifact exists
