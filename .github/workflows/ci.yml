@@ -46,9 +46,32 @@ jobs:
       - name: Run Lint
         run: npx nx affected -t lint
 
-  build:
+  test:
     runs-on: ubuntu-latest
     needs: lint
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      # Cache node_modules
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+      
+      - run: npm ci
+      - uses: nrwl/nx-set-shas@v4
+      
+      # Run unit tests for affected projects
+      - name: Run Unit Tests
+        run: npx nx affected -t test
+        
+  build:
+    runs-on: ubuntu-latest
+    needs: 
+      - lint
+      - test
 
     # ✅ Output flag indicating if artifact exists
     outputs:
